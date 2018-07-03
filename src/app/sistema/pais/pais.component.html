@@ -1,0 +1,36 @@
+<div class="container">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+    <div class="ui-g">
+       <div class="ui-g-12">
+         <h1>Novo Pais</h1>
+       </div>
+
+       <div class="ui-g-12 ui-fluid">
+         <label>Nome do Pais</label>
+         <input pInputText type="text" name="nome" placeholder="Digita o nome do pais"
+         [(ngModel)]="pais.nome" #nome="ngModel" required minlength="3">
+       </div>
+    </div>
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+      <button pButton type="button" label="Novo" class="ui-button-info afastar"></button>
+    </div>
+  </form>
+  <div class="ui-g-12">
+  <p-table [value]="paises">
+      <ng-template pTemplate="header">
+          <tr>
+             <th>Codigo</th>
+             <th>Nome do pais</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-pais>
+          <tr>
+              <td>{{pais.codigo}}</td>
+              <td>{{pais.nome}}</td>
+          </tr>
+
+      </ng-template>
+  </p-table>
+ </div>
+</div>

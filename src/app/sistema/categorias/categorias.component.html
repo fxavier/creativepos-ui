@@ -1,0 +1,43 @@
+<div class="container">
+    <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+      <div class="ui-g">
+         <div class="ui-g-12">
+           <h1>Nova Categoria</h1>
+         </div>
+         <div class="ui-g-6 ui-fluid">
+                <label>Codigo da categoria</label>
+                <input pInputText type="text" name="codigoInterno" placeholder="Digita o codigo da categoria de produtos"
+                [(ngModel)]="categoria.codigoInterno" #codigoInterno="ngModel" required minlength="3">
+         </div>
+         <div class="ui-g-6 ui-fluid">
+           <label>Nome da categoria</label>
+           <input pInputText type="text" name="nome" placeholder="Digita o nome da categoria de produtos"
+           [(ngModel)]="categoria.nome" #nome="ngModel" required minlength="3">
+         </div>
+      </div>
+      <div class="ui-g-12">
+        <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+        <button pButton type="button" label="Novo" class="ui-button-info afastar"></button>
+      </div>
+    </form>
+  <div class="ui-g-12">
+    <p-table [value]="categorias">
+      <ng-template pTemplate="header">
+          <tr>
+             <th>ID</th>
+             <th>Codigo</th>
+             <th>Nome</th>
+          </tr>
+
+      </ng-template>
+      <ng-template pTemplate="body" let-categorias>
+          <tr>
+              <td>{{categorias.codigo}}</td>
+              <td>{{categorias.codigoInterno}}</td>
+              <td>{{categorias.nome}}</td>
+          </tr>
+
+      </ng-template>
+    </p-table>
+  </div>
+</div>
