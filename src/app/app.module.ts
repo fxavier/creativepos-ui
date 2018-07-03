@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SistemaModule } from './sistema/sistema.module';
 
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

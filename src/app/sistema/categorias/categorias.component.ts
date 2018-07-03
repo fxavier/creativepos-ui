@@ -15,14 +15,14 @@ export class CategoriasComponent implements OnInit {
   constructor(private categoriaService: CategoriaService) { }
 
   ngOnInit() {
-    this.pesquisar();
+
   }
 
   salvar(form: FormControl) {
     this.categoriaService.adicionar(this.categoria)
         .then();
-    form.reset();
     this.pesquisar();
+    form.reset();
   }
 
   pesquisar() {

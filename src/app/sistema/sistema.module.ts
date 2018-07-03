@@ -12,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
 /** My App imports */
 import { PaisComponent } from './pais/pais.component';
 import { CategoriasComponent } from './categorias/categorias.component';
+import { BancoComponent } from './banco/banco.component';
 
 
 
@@ -24,7 +25,7 @@ import { CategoriasComponent } from './categorias/categorias.component';
     ButtonModule,
     HttpClientModule
   ],
-  declarations: [PaisComponent, CategoriasComponent],
-  exports: [PaisComponent, CategoriasComponent]
+  declarations: [PaisComponent, CategoriasComponent, BancoComponent],
+  exports: [PaisComponent, CategoriasComponent, BancoComponent]
 })
 export class SistemaModule { }
