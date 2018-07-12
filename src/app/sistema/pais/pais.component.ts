@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-import { Pais } from '../model/pais';
+
 import { PaisService } from '../service/pais.service';
+import { Pais } from '../../core/model';
 
 @Component({
   selector: 'app-pais',
@@ -21,14 +22,17 @@ export class PaisComponent implements OnInit {
   }
 
   pesquisar() {
-    this.paisService.pesquisar().then(paises => this.paises = paises);
+    this.paisService.pesquisar()
+    .subscribe(response => this.paises = response);
   }
 
   salvar(form: FormControl) {
    this.paisService.adicionar(this.pais)
-    .then();
-   form.reset();
-   this.pesquisar();
+     .subscribe(response => {
+       form.reset();
+       this.pesquisar();
+     });
+
   }
 
 }

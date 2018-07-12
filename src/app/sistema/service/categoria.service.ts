@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Categoria } from '../model/categoria';
+import { Observable } from 'rxjs';
+import { Categoria } from '../../core/model';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +14,17 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) { }
 
-  pesquisar(): Promise<any> {
+  pesquisar(): Observable<Categoria[]> {
     const headers = new HttpHeaders()
          .append('Content-Type', 'application/json');
-      return this.http.get(`${this.categoriaUrl}`, {headers})
-             .toPromise()
-             .then(response => response);
+     return this.http.get<Categoria[]>(`${this.categoriaUrl}`, { headers })
+         .pipe(map(response => response));
+
   }
 
-  adicionar(categoria: Categoria): Promise<any> {
+  adicionar(categoria: Categoria): Observable<Categoria> {
     const headers = new HttpHeaders()
          .append('Content-Type', 'application/json');
-    return this.http.post(`${this.categoriaUrl}`, JSON.stringify(categoria), {headers})
-          .toPromise()
-          .then(response => response);
+    return this.http.post<Categoria>(`${this.categoriaUrl}`, categoria, { headers });
   }
 }

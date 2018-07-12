@@ -1,0 +1,25 @@
+<div class="container">
+<div class="ui-g">
+  <div class="ui-g-12">
+    <h1>Moedas</h1>
+  </div>
+  <div class="ui g-12">
+    <p-table [value]="moedas">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Codigo</th>
+          <th>Designacao</th>
+          <th>Sigla</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-moeda>
+        <tr>
+          <td>{{ moeda.codigo }}</td>
+          <td>{{ moeda.designacao }}</td>
+          <td>{{ moeda.sigla }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+ </div>
+</div>

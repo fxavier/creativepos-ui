@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from '../model/categoria';
 import { FormControl } from '@angular/forms';
 import { CategoriaService } from '../service/categoria.service';
+import { Categoria } from '../../core/model';
 
 @Component({
   selector: 'app-categorias',
@@ -15,19 +15,23 @@ export class CategoriasComponent implements OnInit {
   constructor(private categoriaService: CategoriaService) { }
 
   ngOnInit() {
-
+   this.pesquisar();
   }
 
   salvar(form: FormControl) {
     this.categoriaService.adicionar(this.categoria)
-        .then();
-    this.pesquisar();
-    form.reset();
+       .subscribe(response => {
+         form.reset();
+         this.pesquisar();
+       });
   }
 
   pesquisar() {
     this.categoriaService.pesquisar()
-    .then(categorias => this.categorias = categorias);
+    .subscribe(response => {
+      this.categorias = response;
+      console.log(this.categorias);
+    });
   }
 
 }

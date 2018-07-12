@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Banco } from '../model/banco';
 import { BancoService } from '../service/banco.service';
 import { FormControl } from '@angular/forms';
+import { Banco } from '../../core/model';
 
 @Component({
   selector: 'app-banco',
@@ -20,14 +20,15 @@ export class BancoComponent implements OnInit {
 
   salvar(form: FormControl) {
     this.bancoService.adicionar(this.banco)
-        .then();
-    form.reset();
-    this.pesquisar();
+      .subscribe(response => {
+        form.reset();
+        this.pesquisar();
+      });
   }
 
   pesquisar() {
     this.bancoService.pesquisar()
-    .then(bancos => this.bancos = bancos);
+    .subscribe(response => this.bancos = response);
   }
 
 }

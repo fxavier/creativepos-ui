@@ -13,6 +13,10 @@ import { ButtonModule } from 'primeng/button';
 import { PaisComponent } from './pais/pais.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { BancoComponent } from './banco/banco.component';
+import { UnidadeComponent } from './unidade/unidade.component';
+import { MoedaComponent } from './moeda/moeda.component';
+import { FabricanteComponent } from './fabricante/fabricante.component';
+
 
 
 
@@ -25,7 +29,9 @@ import { BancoComponent } from './banco/banco.component';
     ButtonModule,
     HttpClientModule
   ],
-  declarations: [PaisComponent, CategoriasComponent, BancoComponent],
-  exports: [PaisComponent, CategoriasComponent, BancoComponent]
+  declarations: [PaisComponent, CategoriasComponent, BancoComponent, UnidadeComponent,
+     MoedaComponent, FabricanteComponent],
+  exports: [PaisComponent, CategoriasComponent, BancoComponent, UnidadeComponent,
+    MoedaComponent, FabricanteComponent]
 })
 export class SistemaModule { }

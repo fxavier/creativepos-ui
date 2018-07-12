@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Banco } from '../model/banco';
+
+import { Observable } from 'rxjs';
+import { Banco } from '../../core/model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,19 +14,17 @@ export class BancoService {
 
   constructor(private http: HttpClient) { }
 
-  pesquisar(): Promise<any> {
+  pesquisar(): Observable<Banco[]> {
     const headers = new HttpHeaders()
          .append('Content-Type', 'application/json');
-    return this.http.get(`${this.bancoUrl}`, {headers})
-      .toPromise()
-      .then(response => response);
+    return this.http.get<Banco[]>(`${this.bancoUrl}`, { headers })
+         .pipe(map(response => response));
   }
 
-  adicionar(banco: Banco): Promise<any> {
+  adicionar(banco: Banco): Observable<Banco> {
     const headers = new HttpHeaders()
          .append('Content-Type', 'application/json');
-     return this.http.post(`${this.bancoUrl}`, JSON.stringify(banco), {headers})
-            .toPromise()
-            .then(response => response);
+    return this.http.post<Banco>(`${this.bancoUrl}`, banco, { headers });
+
   }
 }

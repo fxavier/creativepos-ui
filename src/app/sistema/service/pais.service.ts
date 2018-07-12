@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pais } from '../model/pais';
+import { Pais } from '../../core/model';
+import { map } from 'rxjs/operators';
 
 
 
@@ -14,32 +15,18 @@ export class PaisService {
 
   constructor(private http: HttpClient ) { }
 
- /* pesquisar(): Observable<any> {
-    const headers = new HttpHeaders()
-         .append('Content-Type', 'application/json');
-    return this.http.get(`${this.paisUrl}`, {headers});
-  }
- */
-
- pesquisar(): Promise<any> {
+ pesquisar(): Observable<Pais[]> {
   const headers = new HttpHeaders()
          .append('Content-Type', 'application/json');
-   return this.http.get(`${this.paisUrl}`, {headers})
-          .toPromise()
-          .then(response => response);
+   return this.http.get<Pais[]>(`${this.paisUrl}`, { headers })
+         .pipe(map(response => response));
  }
 
-  // adicionar(pais: Pais): Observable<any> {
-  //   const headers = new HttpHeaders()
-  //        .append('Content-Type', 'application/json');
-  //   return this.http.post(this.paisUrl, JSON.stringify(pais), { headers });
-  // }
 
-  adicionar(pais: Pais): Promise<any> {
+
+  adicionar(pais: Pais): Observable<Pais> {
     const headers = new HttpHeaders()
          .append('Content-Type', 'application/json');
-      return this.http.post(this.paisUrl, JSON.stringify(pais), { headers })
-         .toPromise()
-         .then(response => response);
+      return this.http.post<Pais>(`${this.paisUrl}`, pais, { headers });
   }
 }

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SistemaModule } from './sistema/sistema.module';
+import { GestaoStockModule } from './gestao-stock/gestao-stock.module';
 
 
 
@@ -16,7 +17,8 @@ import { SistemaModule } from './sistema/sistema.module';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    SistemaModule
+    SistemaModule,
+    GestaoStockModule
 
   ],
   providers: [],
