@@ -1,8 +1,23 @@
 <div class="container">
+  <form #f="ngForm" autocomplete="off" (ngSubmit)="salvar(f)">
+    <div class="ui-g">
+      <div class="ui-g-6 ui-fluid">
+        <label>Designacao</label>
+        <input pInputText type="text" name="designacao" [(ngModel)]="moeda.designacao"
+         #designacao="ngModel" required minlength="3">
+      </div>
+      <div class="ui-g-6 ui-fluid">
+      <label>Sigla</label>
+      <input pInputText type="text" name="sigla" [(ngModel)]="moeda.sigla"
+       #sigla="ngModel" required minlength="2">
+       </div>
+      <div class="ui-g-12">
+      <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+      </div>
+    </div>
+
+  </form>
 <div class="ui-g">
-  <div class="ui-g-12">
-    <h1>Moedas</h1>
-  </div>
   <div class="ui g-12">
     <p-table [value]="moedas">
       <ng-template pTemplate="header">

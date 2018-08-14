@@ -17,6 +17,12 @@ export class MoedaService {
     return this.http.get<Moeda[]>(`${this.moedaUrl}`, { headers })
           .pipe(map(response => response));
   }
+
+  adicionar(moeda: Moeda): Observable<Moeda> {
+    const headers = new HttpHeaders()
+          .append('Content-Type', 'application/json');
+    return this.http.post<Moeda>(`${this.moedaUrl}`, moeda, { headers });
+  }
 }
 
 

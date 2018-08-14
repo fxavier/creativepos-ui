@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoService } from '../service/produto.service';
-import { Produto, Unidade, Fornecedor, Fabricante, Subcategoria } from '../../core/model';
+import { Produto, Unidade, Fornecedor, Fabricante } from '../../core/model';
+import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-produtos-pesquisa',
@@ -11,8 +14,10 @@ import { Produto, Unidade, Fornecedor, Fabricante, Subcategoria } from '../../co
 export class ProdutosPesquisaComponent implements OnInit {
 
   produtos: Produto[];
+  produto = new Produto();
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private produtoService: ProdutoService,
+              private router: Router) { }
 
   ngOnInit() {
     this.pesquisar();
@@ -23,4 +28,9 @@ export class ProdutosPesquisaComponent implements OnInit {
     this.produtoService.pesquisar()
     .subscribe(response => this.produtos = response);
   }
+
+  novo() {
+    this.router.navigate(['/produtos/novo']);
+  }
+
 }

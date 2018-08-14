@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+
+
 import { MoedaService } from '../service/moeda.service';
 import { Moeda } from '../../core/model';
 
@@ -10,10 +13,19 @@ import { Moeda } from '../../core/model';
 export class MoedaComponent implements OnInit {
 
   moedas: Moeda[];
+  moeda = new Moeda();
   constructor(private moedaService: MoedaService) { }
 
   ngOnInit() {
     this.pesquisar();
+  }
+
+  salvar(form: FormControl) {
+    this.moedaService.adicionar(this.moeda)
+     .subscribe(response => {
+      form.reset();
+      this.pesquisar();
+     });
   }
 
   pesquisar() {

@@ -9,10 +9,15 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
+import { CalendarModule } from 'primeng/calendar';
+
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { ProdutosPesquisaComponent } from './produtos-pesquisa/produtos-pesquisa.component';
-import { FornecedorComponent } from './fornecedor/fornecedor.component';
+
 import { ProdutosCadastroComponent } from './produtos-cadastro/produtos-cadastro.component';
+import { FornecedorCadastroComponent } from './fornecedor-cadastro/fornecedor-cadastro.component';
+import { FornecedorPesquisaComponent } from './fornecedor-pesquisa/fornecedor-pesquisa.component';
 
 @NgModule({
   imports: [
@@ -25,10 +30,19 @@ import { ProdutosCadastroComponent } from './produtos-cadastro/produtos-cadastro
     ButtonModule,
     InputTextModule,
     TabViewModule,
-    DropdownModule
+    DropdownModule,
+    CalendarModule,
+
+    TabsModule.forRoot()
 
   ],
-  declarations: [ProdutosPesquisaComponent, FornecedorComponent, ProdutosCadastroComponent],
-  exports: [ProdutosPesquisaComponent, FornecedorComponent, ProdutosCadastroComponent]
+  declarations: [ProdutosPesquisaComponent,
+                 ProdutosCadastroComponent,
+                 FornecedorCadastroComponent,
+                 FornecedorPesquisaComponent],
+  exports: [ProdutosPesquisaComponent,
+            ProdutosCadastroComponent,
+            FornecedorCadastroComponent,
+            FornecedorPesquisaComponent]
 })
 export class GestaoStockModule { }

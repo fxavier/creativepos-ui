@@ -12,73 +12,88 @@
         [(ngModel)]="produto.nome" #nome="ngModel" required minlength="3">
       </div>
     </div>
-    <p-tabView>
-       <p-tabPanel header="Informacao principal">
-         <div class="ui-g-12 ui-fluid">
-           <label>Codigo de Barras</label>
-           <input pInputText type="text" name="codigoBarras" [(ngModel)]="produto.codigoBarras"
-           #codigoBarras="ngModel" >
-         </div>
-         <div class="ui-g-4 ui-fluid">
+    <div>
+      <tabset>
+        <tab heading="Informacao Principal">
+          <div class="ui-g-12 ui-fluid">
+            <label>Codigo de Barras</label>
+            <input pInputText type="text" name="codigoBarras" [(ngModel)]="produto.codigoBarras"
+            #codigoBarras="ngModel" >
+          </div>
+
+          <div class="ui-g-3 ui-fluid">
             <label>Stock actual</label>
             <input pInputText type="text" name="stockActual" [(ngModel)]="produto.stockActual"
             #stockActual="ngModel" >
           </div>
-          <div class="ui-g-4 ui-fluid">
+          <div class="ui-g-3 ui-fluid">
             <label>Stock Minimo</label>
             <input pInputText type="text" name="stockMinimo" [(ngModel)]="produto.stockMinimo"
             #stockMinimo="ngModel" >
           </div>
-          <div class="ui-g-4 ui-fluid">
+          <div class="ui-g-3 ui-fluid">
               <label>Stock Maximo</label>
               <input pInputText type="text" name="stockMaximo" [(ngModel)]="produto.stockMaximo"
               #stockMaximo="ngModel" >
           </div>
-          <div class="ui-g-6 ui-fluid">
+          <div class="ui-g-3 ui-fluid">
               <label>Ponto de Encomenda</label>
               <input pInputText type="text" name="pontoEncomenda" [(ngModel)]="produto.pontoEncomenda"
               #pontoEncomenda="ngModel" >
           </div>
-          <div class="ui-g-6 ui-fluid">
+          <div class="ui-g-3 ui-fluid">
               <label>Quantidade de Encomenda</label>
-              <input pInputText type="text" name="qtdEncomenda" [(ngModel)]="produto.quantidadeEncomendada"
+              <input pInputText type="text" name="qtdEncomenda" [(ngModel)]="produto.quantidadeEncomenda"
               #qtdEcomenda="ngModel" >
           </div>
-          <div class="ui-g-6 ui-fluid">
+
+          <div class="ui-g-3 ui-fluid">
+              <label>Margem bruta</label>
+              <input pInputText type="text" name="margem_bruta" [(ngModel)]="produto.margem_bruta"
+              #mBruta="ngModel" >
+          </div>
+
+          <div class="ui-g-3 ui-fluid">
               <label>Preco de Venda</label>
               <input pInputText type="text" name="precovenda" [(ngModel)]="produto.precovenda"
               #precovenda="ngModel">
           </div>
-       </p-tabPanel>
-       <p-tabPanel header="Informacao diversa">
           <div class="ui-g-3 ui-fluid">
-              <label>Desconto 1</label>
-              <input pInputText type="text" name="desconto1" [(ngModel)]="produto.desconto1"
-              #desconto1="ngModel" >
-          </div>
-          <div class="ui-g-3 ui-fluid">
-              <label>Desconto 2</label>
-              <input pInputText type="text" name="desconto2" [(ngModel)]="produto.desconto2"
-              #desconto2="ngModel" >
-          </div>
-          <div class="ui-g-3 ui-fluid">
-              <label>Desconto 3</label>
-              <input pInputText type="text" name="desconto3" [(ngModel)]="produto.desconto3"
-              #desconto3="ngModel" >
-          </div>
-          <div class="ui-g-3 ui-fluid">
-              <label>Desconto 4</label>
-              <input pInputText type="text" name="desconto4" [(ngModel)]="produto.desconto4"
-              #desconto4="ngModel" >
-          </div>
-          <div class="ui-g-4 ui-fluid">
-            <label>Fabricante</label>
-            <p-dropdown name="fabricante" [options]="fabricantes" [filter]="true"
-              placeholder="Seelcione o fabricante" [autoWidth]="true" ></p-dropdown>
+            <label>Desconto</label>
+            <input pInputText type="text" name="desconto" [(ngModel)]="produto.desconto"
+            #desconto="ngModel" >
+        </div>
+        </tab>
+        <tab heading="Informacao Diversa">
+            <div class="ui-g-6 ui-fluid">
+                <label>Categoria</label>
+                <p-dropdown name="categoria" [options]="categorias" placeholder="Selecione"
+                 [autoWidth]="false" [filter]="true">
 
+                </p-dropdown>
+            </div>
 
-          </div>
-       </p-tabPanel>
-    </p-tabView>
+            <div class="ui-g-6 ui-fluid">
+                <label>Fabricante</label>
+                <p-dropdown name="fabricante" [options]="fabricantes" placeholder="Selecione"
+                 [autoWidth]="false" [(ngModel)]="produto.fabricante.codigo" [filter]="true">
+
+                </p-dropdown>
+            </div>
+
+            <div class="ui-g-6 ui-fluid">
+                <label>Unidade</label>
+                <p-dropdown name="unidade" [options]="unidades" placeholder="Selecione"
+                 [autoWidth]="false" [(ngModel)]="produto.unidade.codigo" [filter]="true">
+
+                </p-dropdown>
+            </div>
+            <div class="ui-g-6 ui-fluid">
+              <label>Data de validade</label>
+              <p-calendar [(ngModel)]="produto.data_validade"  showIcon="true"></p-calendar>
+            </div>
+        </tab>
+      </tabset>
+    </div>
   </form>
 </div>

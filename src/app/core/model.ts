@@ -31,13 +31,6 @@ export class Fabricante {
   nome: string;
 }
 
-export class Subcategoria {
-  codigo: number;
-  codigoInterno: string;
-  nome: string;
-  categoria = new Categoria();
-}
-
 export class Fornecedor {
   codigo: number;
   numeroInterno: number;
@@ -78,14 +71,13 @@ export class Produto {
   stockMinimo: number;
   stockMaximo: number;
   pontoEncomenda: number;
-  quantidadeEncomendada: number;
+  quantidadeEncomenda: number;
   precovenda: number;
-  desconto1: number;
-  desconto2: number;
-  desconto3: number;
-  desconto4: number;
+  desconto: number;
+  margem_bruta: number;
+  data_validade: Date;
   unidade = new Unidade();
   fabricante = new Fabricante();
-  subcategoria = new Subcategoria();
+  categoria = new Categoria();
   fornecedor = new Fornecedor();
 }
