@@ -15,7 +15,6 @@ export class ProdutosCadastroComponent implements OnInit {
   fabricantes = [];
   unidades = [];
   categorias = [];
-  subcategorias = [];
   fornecedores = [];
   constructor(private fabricanteService: FabricanteService,
               private categoriaService: CategoriaService,

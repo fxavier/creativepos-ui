@@ -56,3 +56,7 @@ label {
 .col-acoes-header {
   width: 90px;
 }
+.col-email {
+  width: 100%;
+  margin: auto;
+}

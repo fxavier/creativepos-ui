@@ -1,3 +1,142 @@
-<p>
-  fornecedor-cadastro works!
-</p>
+<div class="container">
+  <div class="ui-g">
+    <h1>Fornecedores</h1>
+  </div>
+  <form #f="ngForm" autocomplete="off">
+    <div>
+      <tabset>
+        <tab heading="Informacao Principal">
+            <div class="ui-g-3 ui-fluid">
+                <label>Numero Interno</label>
+                <input pInputText type="number" name="numeroInterno" [(ngModel)]="fornecedor.numeroInterno"
+                #numeroInterno="ngModel" >
+            </div>
+
+          <div class="ui-g-9 ui-fluid">
+            <label>Nome</label>
+            <input pInputText type="text" name="nome" [(ngModel)]="fornecedor.nome"
+            #nome="ngModel">
+         </div>
+
+          <div class="ui-g-3 ui-fluid">
+            <label>Abreviatura</label>
+            <input pInputText type="text" name="abreviatura" [(ngModel)]="fornecedor.abrevatura"
+            #abreviatura="ngModel" >
+          </div>
+
+          <div class="ui-g-3 ui-fluid">
+              <label>NUIT</label>
+              <input pInputText type="number" name="numeroContribuinte" [(ngModel)]="fornecedor.numeroContribuinte"
+              #numeroContribuinte="ngModel" >
+          </div>
+          <div class="ui-g-6 ui-fluid">
+              <label>Representante</label>
+              <input pInputText type="text" name="representante" [(ngModel)]="fornecedor.representante"
+              #representante="ngModel" >
+          </div>
+          <div class="ui-g-3 ui-fluid">
+              <label>Bilhete de identidade</label>
+              <input pInputText type="text" name="bilheteIdentidade" [(ngModel)]="fornecedor.bilheteIdentidade"
+              #bilheteIdentidade="ngModel" >
+          </div>
+          <div class="ui-g-3 ui-fluid">
+              <label>Data de emissao</label>
+              <p-calendar [(ngModel)]="fornecedor.dataEmissao"  showIcon="true"></p-calendar>
+          </div>
+          <div class="ui-g-3 ui-fluid">
+              <label>Local de emissao</label>
+              <input pInputText type="text" name="localEmissao" [(ngModel)]="fornecedor.localEmissao"
+              #localEmissao="ngModel" >
+          </div>
+          <div class="ui-g-3 ui-fluid">
+              <label>Passaporte</label>
+              <input pInputText type="text" name="passaporte" [(ngModel)]="fornecedor.passaporte"
+              #passaporte="ngModel" >
+          </div>
+
+        </tab>
+        <tab heading="Contactos">
+            <div class="ui-g-4 ui-fluid">
+                <label>Pais</label>
+                <p-dropdown name="pais" [options]="paises" placeholder="Selecione"
+                 [autoWidth]="false" [(ngModel)]="fornecedor.pais.nome" [filter]="true">
+
+                </p-dropdown>
+            </div>
+            <div class="ui-g-4 ui-fluid">
+                <label>Caixa Postal</label>
+                <input pInputText type="text" name="caixaPostal" [(ngModel)]="fornecedor.caixaPostal"
+                #caixaPostal="ngModel" >
+            </div>
+            <div class="ui-g-4  ui-fluid">
+                <label>Moeda</label>
+                <p-dropdown name="moeda" [options]="moedas" placeholder="Selecione"
+                 [autoWidth]="false" [(ngModel)]="fornecedor.moeda.designacao"  [filter]="true">
+
+                </p-dropdown>
+            </div>
+            <div class="ui-g-12 ui-fluid">
+                <label>Morada</label>
+                <input pInputText type="text" name="morada" [(ngModel)]="fornecedor.morada"
+                #morada="ngModel" >
+            </div>
+
+        </tab>
+        <tab heading="Dados bancarios">
+            <div class="ui-g-3  ui-fluid">
+                <label>Banco</label>
+                <p-dropdown name="banco" [options]="bancos" placeholder="Selecione"
+                 [autoWidth]="false" [(ngModel)]="fornecedor.banco.nome" [filter]="true">
+
+                </p-dropdown>
+            </div>
+            <div class="ui-g-3 ui-fluid">
+                <label>Conta</label>
+                <input pInputText type="text" name="conta" [(ngModel)]="fornecedor.conta"
+                #conta="ngModel" >
+            </div>
+            <div class="ui-g-3 ui-fluid">
+                <label>NIB</label>
+                <input pInputText type="text" name="nib" [(ngModel)]="fornecedor.nib"
+                #nib="ngModel" >
+            </div>
+            <div class="ui-g-3 ui-fluid">
+                <label>IBAN</label>
+                <input pInputText type="text" name="iban" [(ngModel)]="fornecedor.iban"
+                #iban="ngModel" >
+            </div>
+            <div class="ui-g-4 ui-fluid">
+                <label>Swift</label>
+                <input pInputText type="text" name="swift" [(ngModel)]="fornecedor.swift"
+                #swift="ngModel" >
+            </div>
+            <div class="ui-g-4 ui-fluid">
+                <label>Limite de credito</label>
+                <input pInputText type="number" name="limiteCredito" [(ngModel)]="fornecedor.limiteCredito"
+                #limiteCredito="ngModel" >
+            </div>
+            <div class="ui-g-4 ui-fluid">
+                <label>Saldo da Conta corrente</label>
+                <input pInputText type="number" name="saldoContaCorrente" [(ngModel)]="fornecedor.saldoContaCorrente"
+                #saldoContaCorrente="ngModel" >
+            </div>
+
+        </tab>
+        <tab heading="Observacoes">
+          <div class="ui-g-12 ui-fluid">
+
+          <p-inputSwitch onLabel="Activo" offLabel="Inactivo"></p-inputSwitch>
+          </div>
+          <div class="ui-g-12 ui-fluid">
+              <label>Observacoes</label>
+              <textarea [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize"></textarea>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+    <div class="ui-g-12">
+      <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+      <button pButton type="button" label="Novo" class="ui-button-info space"></button>
+    </div>
+  </form>
+</div>

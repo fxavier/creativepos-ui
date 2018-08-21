@@ -10,6 +10,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TabViewModule } from 'primeng/tabview';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
@@ -18,11 +20,13 @@ import { ProdutosPesquisaComponent } from './produtos-pesquisa/produtos-pesquisa
 import { ProdutosCadastroComponent } from './produtos-cadastro/produtos-cadastro.component';
 import { FornecedorCadastroComponent } from './fornecedor-cadastro/fornecedor-cadastro.component';
 import { FornecedorPesquisaComponent } from './fornecedor-pesquisa/fornecedor-pesquisa.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     HttpClientModule,
 
@@ -32,6 +36,8 @@ import { FornecedorPesquisaComponent } from './fornecedor-pesquisa/fornecedor-pe
     TabViewModule,
     DropdownModule,
     CalendarModule,
+    InputSwitchModule,
+    InputTextareaModule,
 
     TabsModule.forRoot()
 

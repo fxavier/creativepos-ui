@@ -13,6 +13,8 @@ import { CategoriasComponent } from './sistema/categorias/categorias.component';
 import { UnidadeComponent } from './sistema/unidade/unidade.component';
 import { ProdutosPesquisaComponent } from './gestao-stock/produtos-pesquisa/produtos-pesquisa.component';
 import { ProdutosCadastroComponent } from './gestao-stock/produtos-cadastro/produtos-cadastro.component';
+import { FornecedorPesquisaComponent } from './gestao-stock/fornecedor-pesquisa/fornecedor-pesquisa.component';
+import { FornecedorCadastroComponent } from './gestao-stock/fornecedor-cadastro/fornecedor-cadastro.component';
 
 const routes: Routes = [
  { path: 'bancos', component: BancoComponent },
@@ -24,7 +26,9 @@ const routes: Routes = [
  { path: 'unidades', component: UnidadeComponent },
 
  { path: 'produtos', component: ProdutosPesquisaComponent},
- { path: 'produtos/novo', component: ProdutosCadastroComponent}
+ { path: 'produtos/novo', component: ProdutosCadastroComponent},
+ { path: 'fornecedores', component: FornecedorPesquisaComponent},
+ { path: 'fornecedores/novo', component: FornecedorCadastroComponent}
 ];
 
 @NgModule({
